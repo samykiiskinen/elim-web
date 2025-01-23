@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-start justify-between p-24">
-      <div className="relative w-full h-full">
+      {/* <div className="relative w-full h-full">
         <div
           className="absolute inset-0 
         before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 
@@ -27,7 +27,7 @@ export default function Home() {
             priority
           />
         </div>
-      </div>
+      </div> */}
     </main>
   );
 }
