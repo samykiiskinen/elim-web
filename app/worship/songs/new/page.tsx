@@ -27,6 +27,17 @@ const NewSongPage = () => {
   const [error, setError] = useState("");
   const [isSubmitting, setSubmitting] = useState(false);
 
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      setSubmitting(true);
+      await axios.post("/api/songs", data);
+      router.push("/worship/songs");
+    } catch (error) {
+      setSubmitting(false);
+      setError("OOPS... NU BLEV DET NÅGOT FEL");
+    }
+  });
+
   return (
     <div className="max-w-md">
       {error && (
@@ -34,18 +45,7 @@ const NewSongPage = () => {
           <Callout.Text>{error}</Callout.Text>
         </Callout.Root>
       )}
-      <form
-        onSubmit={handleSubmit(async (data) => {
-          try {
-            setSubmitting(true);
-            await axios.post("/api/songs", data);
-            router.push("/worship/songs");
-          } catch (error) {
-            setSubmitting(false);
-            setError("OOPS... NU BLEV DET NÅGOT FEL");
-          }
-        })}
-      >
+      <form onSubmit={onSubmit}>
         <TextField.Root
           placeholder="Sångtitel"
           {...register("title")}
