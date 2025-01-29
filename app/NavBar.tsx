@@ -8,14 +8,15 @@ import classnames from "classnames";
 const NavBar = () => {
   const currentPath = usePathname();
   const links = [
-    { id: 1, label: "AID PROJECTS", href: "/aid-projects" },
-    { id: 2, label: "WORSHIP", href: "/worship" },
+    { id: 1, label: "HJÄLPPROJEKT", href: "/aid-projects" },
+    { id: 2, label: "LOVSÅNG", href: "/worship" },
+    { id: 3, label: "SÅNGER", href: "/worship/songs" },
   ];
   return (
     <nav className="flex space-x-6 px-5">
       <Link href="/">
         <Image
-          className="dark:invert rounded-full hover:animate-ping"
+          className="rounded-full"
           src="/ElimLogo.svg"
           alt="Elim logo"
           width={100}
@@ -29,10 +30,9 @@ const NavBar = () => {
             key={link.id}
             href={link.href}
             className={classnames({
-              "bg-slate-800": link.href === currentPath,
-              "bg-slate-600": link.href !== currentPath,
-              "text-slate-300": link.href !== currentPath,
-              "border rounded-md px-2 py-1 bg-slate-800 hover:bg-slate-300 hover:text-cyan-900 transition-colors":
+              "bg-slate-600 text-slate-100": link.href === currentPath,
+              "bg-slate-300 text-slate-500": link.href !== currentPath,
+              "border rounded-md px-2 py-1 bg-slate-800 hover:bg-slate-100 hover:text-slate-900 transition-colors":
                 true,
             })}
           >
