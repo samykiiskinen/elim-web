@@ -9,6 +9,7 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createSongSchema } from "@/app/validationSchemas";
 import { z } from "zod";
+import ErrorMessage from "@/app/components/ErrorMessage";
 
 type SongForm = z.infer<typeof createSongSchema>;
 
@@ -44,11 +45,7 @@ const NewSongPage = () => {
           placeholder="Sångtitel"
           {...register("title")}
         ></TextField.Root>
-        {errors.title && (
-          <Text color="red" as="p">
-            {errors.title.message}
-          </Text>
-        )}
+        <ErrorMessage>{errors.title?.message}</ErrorMessage>
         <Controller
           name="text"
           control={control}
@@ -56,11 +53,7 @@ const NewSongPage = () => {
             <SimpleMDE placeholder="Sångtext" {...field} className="mt-2" />
           )}
         ></Controller>
-        {errors.text && (
-          <Text color="red" as="p" className="mb-1">
-            {errors.text.message}
-          </Text>
-        )}
+        <ErrorMessage>{errors.text?.message}</ErrorMessage>
         <Button>SPARA</Button>
       </form>
     </div>

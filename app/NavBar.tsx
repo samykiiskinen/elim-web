@@ -15,10 +15,10 @@ const NavBar = () => {
   return (
     <nav className="flex space-x-6 px-5 items-center">
       <Link href="/">
-        <div className="w-full max-w-32 min-w-24 mx-auto">
+        <div className="w-full max-w-36 min-w-24 mx-auto">
           <Image
-            className="rounded-full w-full h-auto"
-            src="/ElimLogo.svg"
+            className="rounded-full w-full h-auto p-1 hover:scale-110 hover:ease-in-out"
+            src="/Logo1.bmp"
             alt="Elim logo"
             width={100}
             height={100}
@@ -34,7 +34,7 @@ const NavBar = () => {
             className={classnames({
               "bg-slate-600 text-slate-100": link.href === currentPath,
               "bg-slate-300 text-slate-500": link.href !== currentPath,
-              "font-bold border rounded-md px-2 py-1 bg-slate-800 hover:bg-slate-100 hover:text-slate-900 transition-colors":
+              "font-bold border rounded-md px-2 py-1 bg-slate-800 hover:bg-slate-100 hover:text-slate-900 hover:transition-colors hover:ease-in-out":
                 true,
             })}
           >
