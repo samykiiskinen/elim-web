@@ -13,16 +13,18 @@ const NavBar = () => {
     { id: 3, label: "SÅNGER", href: "/worship/songs" },
   ];
   return (
-    <nav className="flex space-x-6 px-5">
+    <nav className="flex space-x-6 px-5 items-center">
       <Link href="/">
-        <Image
-          className="rounded-full"
-          src="/ElimLogo.svg"
-          alt="Elim logo"
-          width={100}
-          height={100}
-          priority
-        ></Image>
+        <div className="w-full max-w-32 min-w-24 mx-auto">
+          <Image
+            className="rounded-full w-full h-auto"
+            src="/ElimLogo.svg"
+            alt="Elim logo"
+            width={100}
+            height={100}
+            priority
+          ></Image>
+        </div>
       </Link>
       <ul className="flex space-x-4 border-b mb-5 px-5 h-20 items-center">
         {links.map((link) => (
@@ -32,7 +34,7 @@ const NavBar = () => {
             className={classnames({
               "bg-slate-600 text-slate-100": link.href === currentPath,
               "bg-slate-300 text-slate-500": link.href !== currentPath,
-              "border rounded-md px-2 py-1 bg-slate-800 hover:bg-slate-100 hover:text-slate-900 transition-colors":
+              "font-bold border rounded-md px-2 py-1 bg-slate-800 hover:bg-slate-100 hover:text-slate-900 transition-colors":
                 true,
             })}
           >
