@@ -57,7 +57,7 @@ const NewSongPage = () => {
           )}
         ></Controller>
         {errors.text && (
-          <Text color="red" as="p">
+          <Text color="red" as="p" className="mb-1">
             {errors.text.message}
           </Text>
         )}
