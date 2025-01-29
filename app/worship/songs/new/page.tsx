@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { createSongSchema } from "@/app/validationSchemas";
 import { z } from "zod";
 import ErrorMessage from "@/app/components/ErrorMessage";
+import Spinner from "@/app/components/Spinner";
 
 type SongForm = z.infer<typeof createSongSchema>;
 
@@ -24,6 +25,8 @@ const NewSongPage = () => {
     resolver: zodResolver(createSongSchema),
   });
   const [error, setError] = useState("");
+  const [isSubmitting, setSubmitting] = useState(false);
+
   return (
     <div className="max-w-md">
       {error && (
@@ -34,9 +37,11 @@ const NewSongPage = () => {
       <form
         onSubmit={handleSubmit(async (data) => {
           try {
+            setSubmitting(true);
             await axios.post("/api/songs", data);
             router.push("/worship/songs");
           } catch (error) {
+            setSubmitting(false);
             setError("OOPS... NU BLEV DET NÅGOT FEL");
           }
         })}
@@ -54,7 +59,9 @@ const NewSongPage = () => {
           )}
         ></Controller>
         <ErrorMessage>{errors.text?.message}</ErrorMessage>
-        <Button>SPARA</Button>
+        <Button disabled={isSubmitting}>
+          SPARA {isSubmitting && <Spinner />}
+        </Button>
       </form>
     </div>
   );
