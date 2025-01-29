@@ -15,7 +15,7 @@ const NavBar = () => {
     <nav className="flex space-x-6 px-5">
       <Link href="/">
         <Image
-          className="dark:invert rounded-full"
+          className="dark:invert rounded-full hover:animate-ping"
           src="/ElimLogo.svg"
           alt="Elim logo"
           width={100}
