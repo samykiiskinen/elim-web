@@ -2,6 +2,7 @@ import React from "react";
 import { prisma } from "../../prisma/client";
 import { Button, Table } from "@radix-ui/themes";
 import Link from "next/link";
+import { RiPagesLine } from "react-icons/ri";
 
 const AidProjectsPage = async () => {
   const projects = await prisma.project.findMany();
@@ -29,6 +30,7 @@ const AidProjectsPage = async () => {
               <Table.ColumnHeaderCell>Beslut</Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell>Inbetalning</Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell>Utbetalning</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell>Bilagor</Table.ColumnHeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -47,6 +49,13 @@ const AidProjectsPage = async () => {
                 <Table.Cell>{project.decision}</Table.Cell>
                 <Table.Cell>{project.income}</Table.Cell>
                 <Table.Cell>{project.expense}</Table.Cell>
+                <Table.Cell>
+                  <Link href={`/aid-projects/${project.id}`}>
+                    <Button>
+                      <RiPagesLine size={30} className="cursor-pointer" />
+                    </Button>
+                  </Link>
+                </Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>
