@@ -17,7 +17,7 @@ const NavBar = () => {
       <Link href="/">
         <div className="w-full max-w-36 min-w-24 mx-auto">
           <Image
-            className="rounded-full w-full h-auto p-1 hover:scale-110 hover:ease-in-out"
+            className="rounded-full w-full h-auto p-1 hover:scale-105 hover:ease-in-out"
             src="/Logo1.bmp"
             alt="Elim logo"
             width={100}

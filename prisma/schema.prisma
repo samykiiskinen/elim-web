@@ -20,3 +20,16 @@ model Song {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 }
+
+model Project {
+  id            Int    @id @default(autoincrement())
+  date          String
+  accountNumber String
+  accountName   String @db.VarChar(64)
+  country       String @db.VarChar(64)
+  receiver      String @db.VarChar(128)
+  purpose       String @db.VarChar(512)
+  decision      String @db.VarChar(64)
+  income        String
+  expense       String
+}
