@@ -21,19 +21,13 @@ const AidProjectsPage = async () => {
           <Table.Header>
             <Table.Row>
               <Table.ColumnHeaderCell>Datum</Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className="hidden sm:table-cell">
-                Konto
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className="hidden md:table-cell">
-                Kontonamn
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>Land</Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell>Mottagare</Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>Ändamål</Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>Beslut</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell className="hidden md:table-cell">
+                Ändamål
+              </Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell>Inbetalning</Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell>Utbetalning</Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>Bilagor</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell>Detaljer</Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
             </Table.Row>
@@ -42,16 +36,8 @@ const AidProjectsPage = async () => {
             {projects.map((project) => (
               <Table.Row key={project.id}>
                 <Table.Cell>{project.date}</Table.Cell>
-                <Table.Cell className="hidden sm:table-cell">
-                  {project.accountNumber}
-                </Table.Cell>
-                <Table.Cell className="hidden md:table-cell">
-                  {project.accountName}
-                </Table.Cell>
-                <Table.Cell>{project.country}</Table.Cell>
                 <Table.Cell>{project.receiver}</Table.Cell>
                 <Table.Cell>{project.purpose}</Table.Cell>
-                <Table.Cell>{project.decision}</Table.Cell>
                 <Table.Cell>{project.income}</Table.Cell>
                 <Table.Cell>{project.expense}</Table.Cell>
                 <Table.Cell>

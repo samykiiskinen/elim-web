@@ -17,10 +17,15 @@ const ProjectDetailPage = async ({ params }: Props) => {
   return (
     <>
       <div>
-        <p>{project.receiver}</p>
-        <p>{project.purpose}</p>
-        <p>{project.income}</p>
-        <p>{project.expense}</p>
+        <p>{`Datum: ${project.date}`}</p>
+        <p>{`Konto: ${project.accountNumber}`}</p>
+        <p>{`Kontonamn: ${project.accountName}`}</p>
+        <p>{`Land: ${project.country}`}</p>
+        <p>{`Mottagare: ${project.receiver}`}</p>
+        <p>{`Ändamål: ${project.purpose}`}</p>
+        <p>{`Beslut: ${project.decision}`}</p>
+        <p>{`Inbetalning: ${project.income} kr`}</p>
+        <p>{`Utbetalning: ${project.expense} kr`}</p>
       </div>
       <div className="mt-5">
         <Link href="/aid-projects">

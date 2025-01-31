@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { prisma } from "../../../prisma/client";
 import { GoPencil } from "react-icons/go";
-import { RiDeleteBin2Line, RiAddLargeFill } from "react-icons/ri";
+import { RiDeleteBin2Line, RiAddLargeFill, RiPagesLine } from "react-icons/ri";
 
 const SongsPage = async () => {
   const songs = await prisma.song.findMany();
@@ -25,6 +25,7 @@ const SongsPage = async () => {
               <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -38,6 +39,13 @@ const SongsPage = async () => {
                   <Button color="jade" variant="surface">
                     <RiAddLargeFill size={20} />
                   </Button>
+                </Table.Cell>
+                <Table.Cell>
+                  <Link href={`/worship/songs/${song.id}`}>
+                    <Button color="gray" variant="surface">
+                      <RiPagesLine size={20} />
+                    </Button>
+                  </Link>
                 </Table.Cell>
                 <Table.Cell>
                   <Button color="gray" variant="surface">
