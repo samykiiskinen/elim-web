@@ -9,9 +9,12 @@ const SongsPage = async () => {
   const songs = await prisma.song.findMany();
   return (
     <div>
-      <div className="mb-3">
-        <Button>
+      <div className="mb-3 space-x-2">
+        <Button variant="surface">
           <Link href="songs/new">LÄGG TILL SÅNG</Link>
+        </Button>
+        <Button variant="surface">
+          <Link href="/worship">TILLBAKA</Link>
         </Button>
       </div>
       <div className="max-w-2xl">

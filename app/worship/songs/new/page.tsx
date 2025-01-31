@@ -11,6 +11,7 @@ import { createSongSchema } from "@/app/validationSchemas";
 import { z } from "zod";
 import ErrorMessage from "@/app/components/ErrorMessage";
 import Spinner from "@/app/components/Spinner";
+import Link from "next/link";
 
 const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
   ssr: false,
@@ -63,9 +64,14 @@ const NewSongPage = () => {
           )}
         ></Controller>
         <ErrorMessage>{errors.text?.message}</ErrorMessage>
-        <Button disabled={isSubmitting}>
-          SPARA {isSubmitting && <Spinner />}
-        </Button>
+        <div className="space-x-2">
+          <Button variant="surface" disabled={isSubmitting}>
+            SPARA {isSubmitting && <Spinner />}
+          </Button>
+          <Button variant="surface">
+            <Link href="/worship/songs">TILLBAKA</Link>
+          </Button>
+        </div>
       </form>
     </div>
   );

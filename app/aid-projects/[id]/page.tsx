@@ -29,7 +29,7 @@ const ProjectDetailPage = async ({ params }: Props) => {
       </div>
       <div className="mt-5">
         <Link href="/aid-projects">
-          <Button>TILLBAKA</Button>
+          <Button variant="surface">TILLBAKA</Button>
         </Link>
       </div>
     </>

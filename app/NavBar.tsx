@@ -4,13 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import classnames from "classnames";
+import { blue } from "@radix-ui/colors";
 
 const NavBar = () => {
   const currentPath = usePathname();
   const links = [
     { id: 1, label: "HJÄLPPROJEKT", href: "/aid-projects" },
     { id: 2, label: "LOVSÅNG", href: "/worship" },
-    { id: 3, label: "SÅNGER", href: "/worship/songs" },
   ];
   return (
     <nav className="flex space-x-6 px-5 items-center">
@@ -32,9 +32,9 @@ const NavBar = () => {
             key={link.id}
             href={link.href}
             className={classnames({
-              "bg-slate-600 text-slate-100": link.href === currentPath,
-              "bg-slate-300 text-slate-500": link.href !== currentPath,
-              "font-bold border rounded-md px-2 py-1 bg-slate-800 hover:bg-slate-100 hover:text-slate-900 hover:transition-colors hover:ease-in-out":
+              "bg-slate-600 text-slate-200": link.href === currentPath,
+              "": link.href !== currentPath,
+              "bg-slate-300 text-slate-700 font-bold border rounded-md px-2 py-1 hover:bg-slate-200 hover:text-slate-700 hover:transition-colors hover:ease-in-out":
                 true,
             })}
           >

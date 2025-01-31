@@ -12,7 +12,7 @@ const AidProjectsPage = async () => {
   return (
     <div>
       <div className="mb-3">
-        <Button>
+        <Button variant="surface">
           <Link href="aid-projects/new">LÄGG TILL PROJEKT</Link>
         </Button>
       </div>

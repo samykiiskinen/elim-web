@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import axios from "axios";
 import { Label } from "@radix-ui/themes/components/context-menu";
+import Link from "next/link";
 
 type ProjectForm = z.infer<typeof createProjectSchema>;
 
@@ -86,9 +87,14 @@ const NewProjectPage = () => {
         <ErrorMessage>{errors.decision?.message}</ErrorMessage>
         <ErrorMessage>{errors.income?.message}</ErrorMessage>
         <ErrorMessage>{errors.expense?.message}</ErrorMessage>
-        <Button disabled={isSubmitting}>
-          SPARA {isSubmitting && <Spinner />}
-        </Button>
+        <div className="mt-4 space-x-2">
+          <Button variant="surface" disabled={isSubmitting}>
+            SPARA {isSubmitting && <Spinner />}
+          </Button>
+          <Button variant="surface">
+            <Link href="/worship">TILLBAKA</Link>
+          </Button>
+        </div>
       </form>
     </div>
   );

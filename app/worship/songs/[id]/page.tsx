@@ -24,7 +24,7 @@ const SongDetailPage = async ({ params }: Props) => {
       </div>
       <div className="mt-5">
         <Link href="/worship/songs">
-          <Button>TILLBAKA</Button>
+          <Button variant="surface">TILLBAKA</Button>
         </Link>
       </div>
     </>
