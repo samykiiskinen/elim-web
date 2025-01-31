@@ -51,9 +51,11 @@ const SongsPage = async () => {
                   </Link>
                 </Table.Cell>
                 <Table.Cell>
-                  <Button color="gray" variant="surface">
-                    <GoPencil size={20} />
-                  </Button>
+                  <Link href={`/worship/songs/${song.id}/edit`}>
+                    <Button color="gray" variant="surface">
+                      <GoPencil size={20} />
+                    </Button>
+                  </Link>
                 </Table.Cell>
                 <Table.Cell>
                   <Button color="tomato" variant="surface">

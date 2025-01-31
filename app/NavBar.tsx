@@ -34,7 +34,7 @@ const NavBar = () => {
             className={classnames({
               "bg-slate-600 text-slate-200": link.href === currentPath,
               "": link.href !== currentPath,
-              "bg-slate-300 text-slate-700 font-bold border rounded-md px-2 py-1 text-2xl hover:bg-slate-200 hover:text-slate-700 hover:transition-colors hover:ease-in-out":
+              "bg-slate-300 text-slate-700 font-bold border-2 border-black rounded-md px-2 py-1 text-2xl hover:bg-slate-200 hover:text-slate-700 hover:transition-colors hover:ease-in-out":
                 true,
             })}
           >
