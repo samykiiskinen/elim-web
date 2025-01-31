@@ -20,14 +20,14 @@ const AidProjectsPage = async () => {
         <Table.Root variant="surface">
           <Table.Header>
             <Table.Row>
-              <Table.ColumnHeaderCell>Datum</Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>Mottagare</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell>DATUM</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell>MOTTAGARE</Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell className="hidden md:table-cell">
-                Ändamål
+                ÄNDAMÅL
               </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>Inbetalning</Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>Utbetalning</Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>Detaljer</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell>INBETALNING</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell>UTBETALNING</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell>DETALJER</Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
             </Table.Row>

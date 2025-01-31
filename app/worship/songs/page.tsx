@@ -21,9 +21,9 @@ const SongsPage = async () => {
         <Table.Root variant="surface">
           <Table.Header>
             <Table.Row>
-              <Table.ColumnHeaderCell>Sångtitel</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell>SÅNGTITEL</Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell className="hidden sm:table-cell">
-                Sångtext
+                SÅNGTEXT
               </Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
