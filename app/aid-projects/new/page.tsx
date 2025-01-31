@@ -92,7 +92,7 @@ const NewProjectPage = () => {
             SPARA {isSubmitting && <Spinner />}
           </Button>
           <Button variant="surface">
-            <Link href="/worship">TILLBAKA</Link>
+            <Link href="/aid-projects">TILLBAKA</Link>
           </Button>
         </div>
       </form>
