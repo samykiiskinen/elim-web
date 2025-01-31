@@ -3,6 +3,9 @@ import { prisma } from "../../prisma/client";
 import { Button, Table } from "@radix-ui/themes";
 import Link from "next/link";
 import { RiPagesLine } from "react-icons/ri";
+import { FaPencil } from "react-icons/fa6";
+import { RiDeleteBin2Line } from "react-icons/ri";
+import { GoPencil } from "react-icons/go";
 
 const AidProjectsPage = async () => {
   const projects = await prisma.project.findMany();
@@ -13,7 +16,7 @@ const AidProjectsPage = async () => {
           <Link href="aid-projects/new">LÄGG TILL PROJEKT</Link>
         </Button>
       </div>
-      <div>
+      <div className="max-w-4xl">
         <Table.Root variant="surface">
           <Table.Header>
             <Table.Row>
@@ -31,6 +34,8 @@ const AidProjectsPage = async () => {
               <Table.ColumnHeaderCell>Inbetalning</Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell>Utbetalning</Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell>Bilagor</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -51,10 +56,20 @@ const AidProjectsPage = async () => {
                 <Table.Cell>{project.expense}</Table.Cell>
                 <Table.Cell>
                   <Link href={`/aid-projects/${project.id}`}>
-                    <Button>
-                      <RiPagesLine size={30} className="cursor-pointer" />
+                    <Button color="gray" variant="surface">
+                      <RiPagesLine size={20} />
                     </Button>
                   </Link>
+                </Table.Cell>
+                <Table.Cell>
+                  <Button color="gray" variant="surface">
+                    <GoPencil size={20} />
+                  </Button>
+                </Table.Cell>
+                <Table.Cell>
+                  <Button color="tomato" variant="surface">
+                    <RiDeleteBin2Line size={20} />
+                  </Button>
                 </Table.Cell>
               </Table.Row>
             ))}

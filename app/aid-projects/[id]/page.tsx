@@ -8,8 +8,9 @@ interface Props {
 }
 
 const ProjectDetailPage = async ({ params }: Props) => {
+  const { id } = await params;
   const project = await prisma.project.findUnique({
-    where: { id: parseInt(params.id) },
+    where: { id: parseInt(id) },
   });
 
   if (!project) notFound();
