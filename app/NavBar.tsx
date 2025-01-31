@@ -15,13 +15,13 @@ const NavBar = () => {
   return (
     <nav className="flex space-x-6 px-5 items-center">
       <Link href="/">
-        <div className="w-full max-w-36 min-w-24 mx-auto">
+        <div className="w-full max-w-32 min-w-16 mx-auto">
           <Image
             className="rounded-full w-full h-auto p-1 hover:scale-105 hover:ease-in-out"
-            src="/Logo1.bmp"
+            src="/Logo.bmp"
             alt="Elim logo"
-            width={100}
-            height={100}
+            width={80}
+            height={80}
             priority
           ></Image>
         </div>
