@@ -4,6 +4,7 @@ import React from "react";
 import { prisma } from "../../../prisma/client";
 import { GoPencil } from "react-icons/go";
 import { RiDeleteBin2Line, RiAddLargeFill, RiPagesLine } from "react-icons/ri";
+import DeleteButton from "@/app/components/DeleteButton";
 
 const SongsPage = async () => {
   const songs = await prisma.song.findMany();
@@ -58,9 +59,7 @@ const SongsPage = async () => {
                   </Link>
                 </Table.Cell>
                 <Table.Cell>
-                  <Button color="tomato" variant="surface">
-                    <RiDeleteBin2Line size={20} />
-                  </Button>
+                  <DeleteButton id={song.id}></DeleteButton>
                 </Table.Cell>
               </Table.Row>
             ))}

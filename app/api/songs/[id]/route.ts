@@ -26,3 +26,19 @@ export async function PATCH(
 
         return NextResponse.json(updatedSong)
     }
+
+export async function DELETE(
+    request: NextRequest,
+    { params }: { params: { id: string }}) {
+        const song = await prisma.song.findUnique({
+            where: { id: parseInt(params.id)}
+        })
+        if (!song) 
+            return NextResponse.json({error: 'Invalid song'}, { status: 404})
+
+        await prisma.song.delete({
+            where: { id: song.id }
+        })
+
+        return NextResponse.json({})
+    }
