@@ -17,10 +17,8 @@ const DeleteButton = ({ id }: { id: number }) => {
         <AlertDialog.Content>
           <AlertDialog.Title>BEKRÄFTA BORTTAGNING AV SÅNG</AlertDialog.Title>
           <AlertDialog.Description>
-            <p>
-              Är du säker på att denna sången ska tas bort?<br></br> Det går
-              inte att ångra i efterhand.
-            </p>
+            Är du säker på att sången ska tas bort? Det går inte att ångra i
+            efterhand.
           </AlertDialog.Description>
           <Flex mt="4" gap="3">
             <AlertDialog.Cancel>
