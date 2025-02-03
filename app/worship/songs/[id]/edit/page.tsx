@@ -8,8 +8,9 @@ interface Props {
 }
 
 const EditSongPage = async ({ params }: Props) => {
+  const { id } = await params;
   const song = await prisma.song.findUnique({
-    where: { id: parseInt(params.id) },
+    where: { id: parseInt(id) },
   });
   if (!song) notFound();
   return <SongForm song={song} />;
