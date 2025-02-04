@@ -5,11 +5,11 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { RiDeleteBin2Line } from "react-icons/ri";
 
-const DeleteButton = ({ id }: { id: string }) => {
+const DeleteUserButton = ({ id }: { id: string }) => {
   const router = useRouter();
   const [error, setError] = useState(false);
 
-  const deleteSong = async () => {
+  const deleteUser = async () => {
     try {
       await axios.delete("/api/users/" + id);
       router.push("/users");
@@ -41,7 +41,7 @@ const DeleteButton = ({ id }: { id: string }) => {
                 <Button color="jade">NEJ, TA INTE BORT ANVÄNDAREN</Button>
               </AlertDialog.Cancel>
               <AlertDialog.Action>
-                <Button color="red" onClick={deleteSong}>
+                <Button color="red" onClick={deleteUser}>
                   JA, TA BORT ANVÄNDAREN
                 </Button>
               </AlertDialog.Action>
@@ -53,6 +53,7 @@ const DeleteButton = ({ id }: { id: string }) => {
             <AlertDialog.Title>ERROR</AlertDialog.Title>
             <AlertDialog.Description>
               Användaren kunde inte tas bort
+              {id}
             </AlertDialog.Description>
             <Button
               color="gray"
@@ -69,4 +70,4 @@ const DeleteButton = ({ id }: { id: string }) => {
   );
 };
 
-export default DeleteButton;
+export default DeleteUserButton;

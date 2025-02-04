@@ -68,13 +68,6 @@ const UserForm = ({ user }: { user?: User }) => {
           ></TextField.Root>
           <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-          {/* <TextField.Root
-            defaultValue={user?.role}
-            placeholder="Roll"
-            {...register("role")}
-          ></TextField.Root>
-          <ErrorMessage>{errors.role?.message}</ErrorMessage> */}
-
           <DropdownMenu.Root>
             <DropdownMenu.Trigger>
               <Button variant="surface">{role || "Välj Roll"}</Button>
