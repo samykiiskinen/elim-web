@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from 'zod'
 import argon2 from 'argon2'
 
-
 const schema = z.object({
     name: z.string(),
     password: z.string().min(5)
@@ -25,6 +24,7 @@ export async function POST(request: NextRequest){
     const newUser = await prisma.user.create({
         data: {
             name: body.name,
+            role: body.role,
             hashedPassword
         }
     })

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { RiDeleteBin2Line } from "react-icons/ri";
 
-const DeleteButton = ({ id }: { id: number }) => {
+const DeleteSongButton = ({ id }: { id: number }) => {
   const router = useRouter();
   const [error, setError] = useState(false);
 
@@ -67,4 +67,4 @@ const DeleteButton = ({ id }: { id: number }) => {
   );
 };
 
-export default DeleteButton;
+export default DeleteSongButton;

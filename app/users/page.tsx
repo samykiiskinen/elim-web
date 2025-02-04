@@ -1,18 +1,18 @@
+import { prisma } from "@/prisma/client";
 import { Button, Table } from "@radix-ui/themes";
 import Link from "next/link";
 import React from "react";
-import { prisma } from "../../../prisma/client";
 import { GoPencil } from "react-icons/go";
-import { RiDeleteBin2Line, RiAddLargeFill, RiPagesLine } from "react-icons/ri";
-import DeleteSongButton from "@/app/components/DeleteSongButton";
+import { RiAddLargeFill, RiPagesLine } from "react-icons/ri";
+import DeleteUserButton from "../components/DeleteUserButton";
 
-const SongsPage = async () => {
-  const songs = await prisma.song.findMany();
+const UsersPage = async () => {
+  const users = await prisma.user.findMany();
   return (
     <div>
       <div className="mb-3 space-x-2">
         <Button variant="surface">
-          <Link href="songs/new">LÄGG TILL SÅNG</Link>
+          <Link href="songs/new">LÄGG TILL ANVÄNDARE</Link>
         </Button>
         <Button variant="surface">
           <Link href="/worship">TILLBAKA</Link>
@@ -22,44 +22,36 @@ const SongsPage = async () => {
         <Table.Root variant="surface">
           <Table.Header>
             <Table.Row>
-              <Table.ColumnHeaderCell>SÅNGTITEL</Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className="hidden sm:table-cell">
-                SÅNGTEXT
-              </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell>ANVÄNDARE</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell>ROLL</Table.ColumnHeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {songs.map((song) => (
-              <Table.Row key={song.id}>
-                <Table.Cell>{song.title}</Table.Cell>
-                <Table.Cell className="hidden sm:table-cell">
-                  {song.text}
-                </Table.Cell>
+            {users.map((user) => (
+              <Table.Row key={user.id}>
+                <Table.Cell>{user.name}</Table.Cell>
+                <Table.Cell>{user.role}</Table.Cell>
                 <Table.Cell>
                   <Button color="jade" variant="surface">
                     <RiAddLargeFill size={20} />
                   </Button>
                 </Table.Cell>
                 <Table.Cell>
-                  <Link href={`/worship/songs/${song.id}`}>
+                  <Link href={`/worship/songs/${user.id}`}>
                     <Button color="gray" variant="surface">
                       <RiPagesLine size={20} />
                     </Button>
                   </Link>
                 </Table.Cell>
                 <Table.Cell>
-                  <Link href={`/worship/songs/${song.id}/edit`}>
+                  <Link href={`/worship/songs/${user.id}/edit`}>
                     <Button color="gray" variant="surface">
                       <GoPencil size={20} />
                     </Button>
                   </Link>
                 </Table.Cell>
                 <Table.Cell>
-                  <DeleteSongButton id={song.id}></DeleteSongButton>
+                  <DeleteUserButton id={user.id}></DeleteUserButton>
                 </Table.Cell>
               </Table.Row>
             ))}
@@ -70,4 +62,4 @@ const SongsPage = async () => {
   );
 };
 
-export default SongsPage;
+export default UsersPage;

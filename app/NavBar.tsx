@@ -11,8 +11,9 @@ const NavBar = () => {
   const currentPath = usePathname();
   const { status, data: session } = useSession();
   const links = [
-    { id: 1, label: "HJÄLPPROJEKT", href: "/aid-projects" },
-    { id: 2, label: "LOVSÅNG", href: "/worship" },
+    { id: 1, label: "LOVSÅNG", href: "/worship" },
+    { id: 2, label: "HJÄLPPROJEKT", href: "/aid-projects" },
+    { id: 3, label: "ANVÄNDARE", href: "/users" },
   ];
   return (
     <nav className="px-5 py-3">
