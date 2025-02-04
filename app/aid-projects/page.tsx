@@ -1,11 +1,9 @@
-import React from "react";
-import { prisma } from "../../prisma/client";
 import { Button, Table } from "@radix-ui/themes";
 import Link from "next/link";
-import { RiPagesLine } from "react-icons/ri";
-import { FaPencil } from "react-icons/fa6";
-import { RiDeleteBin2Line } from "react-icons/ri";
 import { GoPencil } from "react-icons/go";
+import { RiDeleteBin2Line, RiPagesLine } from "react-icons/ri";
+import { prisma } from "../../prisma/client";
+import EditProjectButton from "./[id]/EditProjectButton";
 
 const AidProjectsPage = async () => {
   const projects = await prisma.project.findMany();
@@ -48,14 +46,14 @@ const AidProjectsPage = async () => {
                   </Link>
                 </Table.Cell>
                 <Table.Cell>
-                  <Button color="gray" variant="surface">
-                    <GoPencil size={20} />
-                  </Button>
+                  <EditProjectButton projectId={project.id} />
                 </Table.Cell>
                 <Table.Cell>
-                  <Button color="tomato" variant="surface">
-                    <RiDeleteBin2Line size={20} />
-                  </Button>
+                  <Link href={`/aid-projects/${project.id}/edit`}>
+                    <Button color="tomato" variant="surface">
+                      <RiDeleteBin2Line size={20} />
+                    </Button>
+                  </Link>
                 </Table.Cell>
               </Table.Row>
             ))}
