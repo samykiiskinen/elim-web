@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { createProjectSchema } from "../../validationSchemas";
+import { projectSchema } from "../../validationSchemas";
 import { z } from "zod";
 import { Button, Callout, Spinner, TextField } from "@radix-ui/themes";
 import ErrorMessage from "@/app/components/ErrorMessage";
@@ -12,7 +12,7 @@ import { Label } from "@radix-ui/themes/components/context-menu";
 import Link from "next/link";
 import { Project } from "@prisma/client";
 
-type ProjectFormData = z.infer<typeof createProjectSchema>;
+type ProjectFormData = z.infer<typeof projectSchema>;
 
 const ProjectForm = ({ project }: { project: Project }) => {
   const router = useRouter();
@@ -21,7 +21,7 @@ const ProjectForm = ({ project }: { project: Project }) => {
     handleSubmit,
     formState: { errors },
   } = useForm<ProjectFormData>({
-    resolver: zodResolver(createProjectSchema),
+    resolver: zodResolver(projectSchema),
   });
   const [error, setError] = useState("");
   const [isSubmitting, setSubmitting] = useState(false);

@@ -1,8 +1,8 @@
 import { Button, Table } from "@radix-ui/themes";
 import Link from "next/link";
-import { GoPencil } from "react-icons/go";
-import { RiDeleteBin2Line, RiPagesLine } from "react-icons/ri";
+import { RiPagesLine } from "react-icons/ri";
 import { prisma } from "../../prisma/client";
+import DeleteProjectButton from "../components/DeleteProjectButton";
 import EditProjectButton from "./[id]/EditProjectButton";
 
 const AidProjectsPage = async () => {
@@ -49,11 +49,7 @@ const AidProjectsPage = async () => {
                   <EditProjectButton projectId={project.id} />
                 </Table.Cell>
                 <Table.Cell>
-                  <Link href={`/aid-projects/${project.id}/edit`}>
-                    <Button color="tomato" variant="surface">
-                      <RiDeleteBin2Line size={20} />
-                    </Button>
-                  </Link>
+                  <DeleteProjectButton id={project.id}></DeleteProjectButton>
                 </Table.Cell>
               </Table.Row>
             ))}

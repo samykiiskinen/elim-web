@@ -11,7 +11,7 @@ export const songSchema = z.object({
     .refine(value => value !== undefined, 'Sångtext saknas') 
 });
 
-export const createProjectSchema = z.object({
+export const projectSchema = z.object({
     date: z.string(),
     accountNumber: z.string(),
     accountName: z.string(),
@@ -28,3 +28,4 @@ export const userSchema = z.object({
     password: z.string(),
     role: z.enum(["ADMIN", "LEADERSHIP", "WORSHIP", "BACKOFFICE"])
 });
+
