@@ -13,35 +13,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Song {
-  id        Int      @id @default(autoincrement())
-  title     String   @db.VarChar(255)
-  text      String   @db.Text
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
-}
-
-model Project {
-  id            Int    @id @default(autoincrement())
-  date          String
-  accountNumber String
-  accountName   String @db.VarChar(64)
-  country       String @db.VarChar(64)
-  receiver      String @db.VarChar(128)
-  purpose       String @db.VarChar(512)
-  decision      String @db.VarChar(64)
-  income        String
-  expense       String
-}
-
 model User {
-  id             String    @id @default(cuid())
-  name           String    @unique
+  id             String     @id @default(cuid())
+  name           String     @unique
   hashedPassword String
+  role           UserRole
   accounts       Account[]
   sessions       Session[]
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
+  songLists      SongList[] // Relation to SongList
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+}
+
+enum UserRole {
+  ADMIN
+  USER
+  GUEST
 }
 
 model Account {
@@ -78,4 +65,57 @@ model VerificationToken {
   expires    DateTime
 
   @@id([identifier, token])
+}
+
+model Project {
+  id            Int    @id @default(autoincrement())
+  date          String
+  accountNumber String
+  accountName   String @db.VarChar(64)
+  country       String @db.VarChar(64)
+  receiver      String @db.VarChar(128)
+  purpose       String @db.VarChar(512)
+  decision      String @db.VarChar(64)
+  income        String
+  expense       String
+}
+
+model Song {
+  id        Int        @id @default(autoincrement())
+  title     String     @db.VarChar(255)
+  text      String     @db.Text
+  songKey   SongKey?
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @default(now()) @updatedAt
+  songLists SongList[] @relation("SongInSongLists") // Relation to SongList
+}
+
+enum SongKey {
+  C
+  C_SHARP
+  D_FLAT
+  D
+  D_SHARP
+  E_FLAT
+  E
+  F
+  F_SHARP
+  G_FLAT
+  G
+  G_SHARP
+  A_FLAT
+  A
+  A_SHARP
+  B_FLAT
+  B
+}
+
+model SongList {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(255)
+  userId    String
+  songs     Song[]   @relation("SongInSongLists") // Relation to Song
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade) // Relation to User
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 }
