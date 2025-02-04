@@ -70,7 +70,7 @@ const UserForm = ({ user }: { user?: User }) => {
 
           <DropdownMenu.Root>
             <DropdownMenu.Trigger>
-              <Button variant="surface">{role || "Välj Roll"}</Button>
+              <Button variant="surface">{role || "Roll"}</Button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content className="mt-2 bg-white rounded-md shadow-md">
               <DropdownMenu.Item
@@ -99,19 +99,19 @@ const UserForm = ({ user }: { user?: User }) => {
               </DropdownMenu.Item>
               <DropdownMenu.Item
                 onClick={() => {
-                  setRole("SUPPORT");
-                  setValue("role", "SUPPORT");
-                }}
-              >
-                Support
-              </DropdownMenu.Item>
-              <DropdownMenu.Item
-                onClick={() => {
                   setRole("WORSHIP");
                   setValue("role", "WORSHIP");
                 }}
               >
                 Lovsång
+              </DropdownMenu.Item>
+              <DropdownMenu.Item
+                onClick={() => {
+                  setRole("SUPPORT");
+                  setValue("role", "SUPPORT");
+                }}
+              >
+                Support
               </DropdownMenu.Item>
               <DropdownMenu.Item
                 onClick={() => {
