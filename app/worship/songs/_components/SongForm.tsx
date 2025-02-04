@@ -36,7 +36,6 @@ const SongForm = ({ song }: { song?: Song }) => {
   const onSubmit = handleSubmit(async (data) => {
     try {
       setSubmitting(true);
-      console.log(song?.id);
       if (song) await axios.patch("/api/songs/" + song.id, data);
       else await axios.post("/api/songs", data);
       router.push("/worship/songs");

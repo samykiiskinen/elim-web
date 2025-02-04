@@ -1,4 +1,3 @@
-import React from "react";
 import SongForm from "../_components/SongForm";
 
 const NewSongPage = () => {

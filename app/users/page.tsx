@@ -12,7 +12,7 @@ const UsersPage = async () => {
     <div>
       <div className="mb-3 space-x-2">
         <Button variant="surface">
-          <Link href="songs/new">LÄGG TILL ANVÄNDARE</Link>
+          <Link href="users/new">LÄGG TILL ANVÄNDARE</Link>
         </Button>
         <Button variant="surface">
           <Link href="/worship">TILLBAKA</Link>

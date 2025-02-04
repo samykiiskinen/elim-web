@@ -22,3 +22,9 @@ export const createProjectSchema = z.object({
     income: z.string(),
     expense: z.string()
 });
+
+export const userSchema = z.object({
+    name: z.string(),
+    password: z.string(),
+    role: z.enum(["ADMIN", "LEADERSHIP", "WORSHIP", "BACKOFFICE"])
+});
