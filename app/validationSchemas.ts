@@ -26,6 +26,6 @@ export const projectSchema = z.object({
 export const userSchema = z.object({
     name: z.string(),
     password: z.string(),
-    role: z.enum(["ADMIN", "LEADERSHIP", "WORSHIP", "BACKOFFICE"])
+    role: z.enum(["ADMIN", "FINANCE", "LEADERSHIP", "SUPPORT", "WORSHIP", "YOUTH"])
 });
 

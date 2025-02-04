@@ -83,27 +83,43 @@ const UserForm = ({ user }: { user?: User }) => {
               </DropdownMenu.Item>
               <DropdownMenu.Item
                 onClick={() => {
-                  setRole("USER");
+                  setRole("FINANCE");
+                  setValue("role", "FINANCE");
+                }}
+              >
+                Ekonomi
+              </DropdownMenu.Item>
+              <DropdownMenu.Item
+                onClick={() => {
+                  setRole("LEADERSHIP");
                   setValue("role", "LEADERSHIP");
                 }}
               >
-                Leadership
+                Ledning
               </DropdownMenu.Item>
               <DropdownMenu.Item
                 onClick={() => {
-                  setRole("GUEST");
+                  setRole("SUPPORT");
+                  setValue("role", "SUPPORT");
+                }}
+              >
+                Support
+              </DropdownMenu.Item>
+              <DropdownMenu.Item
+                onClick={() => {
+                  setRole("WORSHIP");
                   setValue("role", "WORSHIP");
                 }}
               >
-                Worship
+                Lovsång
               </DropdownMenu.Item>
               <DropdownMenu.Item
                 onClick={() => {
-                  setRole("ADMIN");
-                  setValue("role", "BACKOFFICE");
+                  setRole("YOUTH");
+                  setValue("role", "YOUTH");
                 }}
               >
-                Backoffice
+                Ungdom
               </DropdownMenu.Item>
             </DropdownMenu.Content>
           </DropdownMenu.Root>

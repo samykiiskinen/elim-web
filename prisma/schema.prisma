@@ -27,9 +27,11 @@ model User {
 
 enum UserRole {
   ADMIN
+  FINANCE
   LEADERSHIP
+  SUPPORT
   WORSHIP
-  BACKOFFICE
+  YOUTH
 }
 
 model Account {
