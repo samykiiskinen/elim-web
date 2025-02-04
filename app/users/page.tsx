@@ -37,14 +37,14 @@ const UsersPage = async () => {
                   </Button>
                 </Table.Cell>
                 <Table.Cell>
-                  <Link href={`/worship/songs/${user.id}`}>
+                  <Link href={`/users/${user.id}`}>
                     <Button color="gray" variant="surface">
                       <RiPagesLine size={20} />
                     </Button>
                   </Link>
                 </Table.Cell>
                 <Table.Cell>
-                  <Link href={`/worship/songs/${user.id}/edit`}>
+                  <Link href={`/users/${user.id}/edit`}>
                     <Button color="gray" variant="surface">
                       <GoPencil size={20} />
                     </Button>

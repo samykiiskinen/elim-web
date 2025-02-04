@@ -12,7 +12,7 @@ const DeleteButton = ({ id }: { id: string }) => {
   const deleteSong = async () => {
     try {
       await axios.delete("/api/users/" + id);
-      router.push("/worship/users");
+      router.push("/users");
       router.refresh();
     } catch (error) {
       setError(true);
