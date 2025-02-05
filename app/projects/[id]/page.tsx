@@ -1,5 +1,6 @@
 import { prisma } from "@/prisma/client";
-import { Button, Link } from "@radix-ui/themes";
+import { Button } from "@radix-ui/themes";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
 

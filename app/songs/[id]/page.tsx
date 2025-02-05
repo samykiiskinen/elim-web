@@ -1,5 +1,7 @@
+//"use client";
 import { prisma } from "@/prisma/client";
-import { Button, Link } from "@radix-ui/themes";
+import { Button } from "@radix-ui/themes";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
 
@@ -12,8 +14,8 @@ const SongDetailPage = async ({ params }: Props) => {
   const song = await prisma.song.findUnique({
     where: { id: parseInt(id) },
   });
-
   if (!song) notFound();
+
   return (
     <>
       <div>

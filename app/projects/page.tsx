@@ -1,6 +1,6 @@
 import { Button, Table } from "@radix-ui/themes";
 import Link from "next/link";
-import { RiPagesLine } from "react-icons/ri";
+import { RiAddLargeFill, RiPagesLine } from "react-icons/ri";
 import { prisma } from "../../prisma/client";
 import DeleteProjectButton from "../components/DeleteProjectButton";
 import EditProjectButton from "./[id]/EditProjectButton";
@@ -9,12 +9,14 @@ const AidProjectsPage = async () => {
   const projects = await prisma.project.findMany();
   return (
     <div>
-      <div className="flex items-center mb-5 space-x-10">
+      <div className="flex items-center mb-5 space-x-5">
         <h1 className="text-3xl font-bold">HJÄLPPROJEKT</h1>
         <div>
-          <Button variant="surface">
-            <Link href="projects/new">LÄGG TILL HJÄLPPROJEKT</Link>
-          </Button>
+          <Link href="projects/new">
+            <Button color="jade" variant="soft">
+              <RiAddLargeFill size={20} />
+            </Button>
+          </Link>
         </div>
       </div>
       <div className="max-w-4xl">

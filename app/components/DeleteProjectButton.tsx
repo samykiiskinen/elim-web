@@ -11,8 +11,8 @@ const DeleteProjectButton = ({ id }: { id: number }) => {
 
   const deleteProject = async () => {
     try {
-      await axios.delete("/api/aid-projects/" + id);
-      router.push("/aid-projects");
+      await axios.delete("/api/projects/" + id);
+      router.push("/projects");
       router.refresh();
     } catch (error) {
       setError(true);
@@ -24,7 +24,7 @@ const DeleteProjectButton = ({ id }: { id: number }) => {
       <>
         <AlertDialog.Root>
           <AlertDialog.Trigger>
-            <Button color="tomato" variant="surface">
+            <Button color="tomato" variant="soft">
               <RiDeleteBin2Line size={20} />
             </Button>
           </AlertDialog.Trigger>

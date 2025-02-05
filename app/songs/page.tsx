@@ -10,30 +10,31 @@ const SongsPage = async () => {
   const songs = await prisma.song.findMany();
   return (
     <>
-      <div className="flex items-center mb-5 space-x-10">
+      <div className="flex items-center mb-5 space-x-5">
         <h1 className="text-3xl font-bold">SÅNGLISTOR</h1>
         <div>
-          <Button variant="surface">
-            <Link href="songs/new">LÄGG TILL LISTA</Link>
-          </Button>
+          <Link href="songs/new">
+            <Button color="jade" variant="soft">
+              <RiAddLargeFill size={20} />
+            </Button>
+          </Link>
         </div>
       </div>
-      <div className="flex items-center mb-5 space-x-10">
+      <div className="flex items-center mb-5 space-x-5">
         <h1 className="text-3xl font-bold">SÅNGER</h1>
         <div>
-          <Button variant="surface">
-            <Link href="songs/new">LÄGG TILL SÅNG</Link>
-          </Button>
+          <Link href="songs/new">
+            <Button color="jade" variant="soft">
+              <RiAddLargeFill size={20} />
+            </Button>
+          </Link>
         </div>
       </div>
-      <div className="max-w-2xl">
+      <div className="max-w-xl">
         <Table.Root variant="surface">
           <Table.Header>
             <Table.Row>
               <Table.ColumnHeaderCell>TITEL</Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell className="hidden sm:table-cell">
-                TEXT
-              </Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
@@ -43,12 +44,13 @@ const SongsPage = async () => {
           <Table.Body>
             {songs.map((song) => (
               <Table.Row key={song.id}>
-                <Table.Cell>{song.title}</Table.Cell>
-                <Table.Cell className="hidden sm:table-cell">
-                  {song.text}
+                <Table.Cell>
+                  <div className="flex items-center h-full text-md">
+                    {song.title}
+                  </div>
                 </Table.Cell>
                 <Table.Cell>
-                  <Button color="jade" variant="surface">
+                  <Button color="jade" variant="soft">
                     <RiAddLargeFill size={20} />
                   </Button>
                 </Table.Cell>

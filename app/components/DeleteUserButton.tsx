@@ -24,7 +24,7 @@ const DeleteUserButton = ({ id }: { id: string }) => {
       <>
         <AlertDialog.Root>
           <AlertDialog.Trigger>
-            <Button color="tomato" variant="surface">
+            <Button color="tomato" variant="soft">
               <RiDeleteBin2Line size={20} />
             </Button>
           </AlertDialog.Trigger>
