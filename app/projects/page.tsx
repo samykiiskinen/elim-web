@@ -9,10 +9,13 @@ const AidProjectsPage = async () => {
   const projects = await prisma.project.findMany();
   return (
     <div>
-      <div className="mb-3">
-        <Button variant="surface">
-          <Link href="aid-projects/new">LÄGG TILL PROJEKT</Link>
-        </Button>
+      <div className="flex items-center mb-5 space-x-10">
+        <h1 className="text-3xl font-bold">HJÄLPPROJEKT</h1>
+        <div>
+          <Button variant="surface">
+            <Link href="projects/new">LÄGG TILL HJÄLPPROJEKT</Link>
+          </Button>
+        </div>
       </div>
       <div className="max-w-4xl">
         <Table.Root variant="surface">
@@ -39,7 +42,7 @@ const AidProjectsPage = async () => {
                 <Table.Cell>{project.income}</Table.Cell>
                 <Table.Cell>{project.expense}</Table.Cell>
                 <Table.Cell>
-                  <Link href={`/aid-projects/${project.id}`}>
+                  <Link href={`/projects/${project.id}`}>
                     <Button color="gray" variant="surface">
                       <RiPagesLine size={20} />
                     </Button>

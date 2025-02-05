@@ -23,7 +23,7 @@ const SongDetailPage = async ({ params }: Props) => {
         <p>{`Uppdaterad: ${song.updatedAt.toDateString()}`}</p>
       </div>
       <div className="mt-5">
-        <Link href="/worship/songs">
+        <Link href="/songs">
           <Button variant="surface">TILLBAKA</Button>
         </Link>
       </div>

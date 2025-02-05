@@ -28,7 +28,7 @@ const ProjectDetailPage = async ({ params }: Props) => {
         <p>{`Utbetalning: ${project.expense} kr`}</p>
       </div>
       <div className="mt-5">
-        <Link href="/aid-projects">
+        <Link href="/projects">
           <Button variant="surface">TILLBAKA</Button>
         </Link>
       </div>

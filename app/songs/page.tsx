@@ -1,30 +1,38 @@
-import { Button, Table } from "@radix-ui/themes";
+import { Box, Button, Grid, Table } from "@radix-ui/themes";
 import Link from "next/link";
 import React from "react";
-import { prisma } from "../../../prisma/client";
+import { prisma } from "../../prisma/client";
 import { GoPencil } from "react-icons/go";
-import { RiDeleteBin2Line, RiAddLargeFill, RiPagesLine } from "react-icons/ri";
+import { RiAddLargeFill, RiPagesLine } from "react-icons/ri";
 import DeleteSongButton from "@/app/components/DeleteSongButton";
 
 const SongsPage = async () => {
   const songs = await prisma.song.findMany();
   return (
-    <div>
-      <div className="mb-3 space-x-2">
-        <Button variant="surface">
-          <Link href="songs/new">LÄGG TILL SÅNG</Link>
-        </Button>
-        <Button variant="surface">
-          <Link href="/worship">TILLBAKA</Link>
-        </Button>
+    <>
+      <div className="flex items-center mb-5 space-x-10">
+        <h1 className="text-3xl font-bold">SÅNGLISTOR</h1>
+        <div>
+          <Button variant="surface">
+            <Link href="songs/new">LÄGG TILL LISTA</Link>
+          </Button>
+        </div>
+      </div>
+      <div className="flex items-center mb-5 space-x-10">
+        <h1 className="text-3xl font-bold">SÅNGER</h1>
+        <div>
+          <Button variant="surface">
+            <Link href="songs/new">LÄGG TILL SÅNG</Link>
+          </Button>
+        </div>
       </div>
       <div className="max-w-2xl">
         <Table.Root variant="surface">
           <Table.Header>
             <Table.Row>
-              <Table.ColumnHeaderCell>SÅNGTITEL</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell>TITEL</Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell className="hidden sm:table-cell">
-                SÅNGTEXT
+                TEXT
               </Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
@@ -45,14 +53,14 @@ const SongsPage = async () => {
                   </Button>
                 </Table.Cell>
                 <Table.Cell>
-                  <Link href={`/worship/songs/${song.id}`}>
+                  <Link href={`/songs/${song.id}`}>
                     <Button color="gray" variant="surface">
                       <RiPagesLine size={20} />
                     </Button>
                   </Link>
                 </Table.Cell>
                 <Table.Cell>
-                  <Link href={`/worship/songs/${song.id}/edit`}>
+                  <Link href={`/songs/${song.id}/edit`}>
                     <Button color="gray" variant="surface">
                       <GoPencil size={20} />
                     </Button>
@@ -66,7 +74,7 @@ const SongsPage = async () => {
           </Table.Body>
         </Table.Root>
       </div>
-    </div>
+    </>
   );
 };
 

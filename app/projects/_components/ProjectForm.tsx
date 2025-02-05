@@ -29,8 +29,8 @@ const ProjectForm = ({ project }: { project: Project }) => {
   const onSubmit = handleSubmit(async (data) => {
     try {
       setSubmitting(true);
-      await axios.post("/api/aid-projects", data);
-      router.push("/aid-projects");
+      await axios.post("/api/projects", data);
+      router.push("/projects");
     } catch (error) {
       setSubmitting(false);
       setError("OOPS... NU BLEV DET NÅGOT FEL");
@@ -96,7 +96,7 @@ const ProjectForm = ({ project }: { project: Project }) => {
             SPARA {isSubmitting && <Spinner />}
           </Button>
           <Button variant="surface">
-            <Link href="/aid-projects">TILLBAKA</Link>
+            <Link href="/projects">TILLBAKA</Link>
           </Button>
         </div>
       </form>

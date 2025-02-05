@@ -38,7 +38,7 @@ const SongForm = ({ song }: { song?: Song }) => {
       setSubmitting(true);
       if (song) await axios.patch("/api/songs/" + song.id, data);
       else await axios.post("/api/songs", data);
-      router.push("/worship/songs");
+      router.push("/songs");
     } catch (error) {
       setSubmitting(false);
       setError("OOPS... NU BLEV DET NÅGOT FEL");
@@ -73,7 +73,7 @@ const SongForm = ({ song }: { song?: Song }) => {
             SPARA {isSubmitting && <Spinner />}
           </Button>
           <Button variant="surface">
-            <Link href="/worship/songs">TILLBAKA</Link>
+            <Link href="/songs">TILLBAKA</Link>
           </Button>
         </div>
       </form>

@@ -11,8 +11,8 @@ const NavBar = () => {
   const currentPath = usePathname();
   const { status, data: session } = useSession();
   const links = [
-    { id: 1, label: "LOVSÅNG", href: "/worship" },
-    { id: 2, label: "HJÄLPPROJEKT", href: "/aid-projects" },
+    { id: 1, label: "LOVSÅNG", href: "/songs" },
+    { id: 2, label: "HJÄLPPROJEKT", href: "/projects" },
     { id: 3, label: "ANVÄNDARE", href: "/users" },
   ];
   return (

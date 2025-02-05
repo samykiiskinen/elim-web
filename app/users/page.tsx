@@ -8,10 +8,13 @@ const UsersPage = async () => {
   const users = await prisma.user.findMany();
   return (
     <div>
-      <div className="mb-3 space-x-2">
-        <Button variant="surface">
-          <Link href="users/new">LÄGG TILL ANVÄNDARE</Link>
-        </Button>
+      <div className="flex items-center mb-5 space-x-10">
+        <h1 className="text-3xl font-bold">ANVÄNDARE</h1>
+        <div>
+          <Button variant="surface">
+            <Link href="users/new">LÄGG TILL ANVÄNDARE</Link>
+          </Button>
+        </div>
       </div>
       <div className="max-w-xl">
         <Table.Root variant="surface">
